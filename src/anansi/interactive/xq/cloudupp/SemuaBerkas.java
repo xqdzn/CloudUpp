@@ -10,23 +10,21 @@ import org.json.JSONObject;
 import anansi.interactive.xq.cloudupp.helpah.AlertDialogManager;
 import anansi.interactive.xq.cloudupp.helpah.ConnectionDetector;
 import anansi.interactive.xq.cloudupp.helpah.JSONParser;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
 
 
-public class SemuaBerkas extends ListActivity {
+public class SemuaBerkas extends SherlockListActivity {
 JSONArray items = null;
 	
 	// Connection detector
@@ -102,24 +100,9 @@ JSONArray items = null;
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.semuaberkas, menu);
-	    return true;
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case R.id.menu:
-	            Toast.makeText(SemuaBerkas.this, "menuu", Toast.LENGTH_SHORT).show();
-	            return true;
-	        case R.id.menu1:
-	        	Toast.makeText(SemuaBerkas.this, "menuu1", Toast.LENGTH_SHORT).show();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+	   com.actionbarsherlock.view.MenuInflater inflater = getSupportMenuInflater();
+	   inflater.inflate(R.menu.semuaberkas_menu, (com.actionbarsherlock.view.Menu) menu);
+	   return super.onCreateOptionsMenu(menu);
 	}
 	
 	class LoadItems extends AsyncTask<String, Void, String> {
