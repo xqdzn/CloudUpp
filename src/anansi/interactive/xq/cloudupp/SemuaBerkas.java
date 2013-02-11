@@ -14,12 +14,16 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 
 public class SemuaBerkas extends ListActivity {
@@ -47,10 +51,11 @@ JSONArray items = null;
 	private static final String TAG_NAME = "name";
 	private static final String TAG_ITEM_TYPE = "item_type";
 
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_ACTION_BAR);
 		setContentView(R.layout.semua_berkas_act);
 		
 		cd = new ConnectionDetector(getApplicationContext());
@@ -95,6 +100,27 @@ JSONArray items = null;
 		
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.semuaberkas, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.menu:
+	            Toast.makeText(SemuaBerkas.this, "menuu", Toast.LENGTH_SHORT).show();
+	            return true;
+	        case R.id.menu1:
+	        	Toast.makeText(SemuaBerkas.this, "menuu1", Toast.LENGTH_SHORT).show();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 	
 	class LoadItems extends AsyncTask<String, Void, String> {
 		@Override

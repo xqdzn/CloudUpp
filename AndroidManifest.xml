@@ -30,7 +30,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_semua_berkas"
             android:parentActivityName="android.app.ListActivity"
-            android:theme="@style/FullscreenTheme" >
+            android:theme="@android:style/Theme.Holo">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.app.ListActivity" />
