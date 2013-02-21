@@ -25,16 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="anansi.interactive.xq.cloudupp.SemuaBerkas"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_semua_berkas"
-            android:parentActivityName="android.app.ListActivity"
-            android:theme="@android:style/Theme.Holo" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="android.app.ListActivity" />
-        </activity>
+      <activity android:name=".fragments.AllFilesActivity"></activity>
+      <activity android:name="anansi.interactive.xq.cloudupp.SemuaBerkas"></activity>
+      <activity android:name="anansi.interactive.xq.cloudupp.fragments.FragmenFile"></activity>
+      <activity android:name="anansi.interactive.xq.cloudupp.fragments.FragmenMenuFile"></activity>
         <activity
             android:name="anansi.interactive.xq.cloudupp.Daftar"
             android:label="@string/title_activity_daftar" >

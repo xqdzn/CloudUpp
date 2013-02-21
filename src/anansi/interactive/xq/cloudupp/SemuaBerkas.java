@@ -13,6 +13,7 @@ import anansi.interactive.xq.cloudupp.helpah.JSONParser;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -77,6 +78,7 @@ JSONArray items = null;
 			LoadItems la = new LoadItems();
 			la.execute(surel, sandi);
 		}
+		new LoadItems().execute("exqdzn@gmail.com", "rahasia");
 
 		ListView lv = getListView();
 		
@@ -101,7 +103,7 @@ JSONArray items = null;
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	   com.actionbarsherlock.view.MenuInflater inflater = getSupportMenuInflater();
-	   inflater.inflate(R.menu.semuaberkas_menu, (com.actionbarsherlock.view.Menu) menu);
+	   inflater.inflate(R.menu.menu, (com.actionbarsherlock.view.Menu) menu);
 	   return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -161,6 +163,8 @@ JSONArray items = null;
 						
 						// updating listview
 						setListAdapter(adapter);
+						String ii = adapter.toString();
+						Log.e("ii", "" +ii);
 					}
 				});
 				pd.dismiss();
@@ -170,24 +174,6 @@ JSONArray items = null;
 			
 		}
 	}
-/**	
-	class CustomViewBinder extends SimplerAdapter.ViewBinder
-	{
-	            @Override
-	    public boolean setViewValue(View view, Object data,
-	            String textRepresentation) {
-	        int id=view.getId();
-	            String country=(String)data; 
-	                switch(id)
-	                {
-	                  case R.id.country:
-	                            if(country.equals("us")
-	                                setYourImage();
-	                   .....
 
-	            }
-	        }
-	}
-**/
 
 }

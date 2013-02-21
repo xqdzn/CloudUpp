@@ -10,6 +10,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import anansi.interactive.xq.cloudupp.fragments.AllFilesActivity;
 import anansi.interactive.xq.cloudupp.helpah.AlertDialogManager;
 import anansi.interactive.xq.cloudupp.helpah.ConnectionDetector;
 import android.app.Activity;
@@ -69,7 +70,7 @@ public class Masuk extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(Masuk.this, SemuaBerkas.class);
+				Intent i = new Intent(Masuk.this, AllFilesActivity.class);
 				startActivity(i);
 				finish();
 

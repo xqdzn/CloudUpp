@@ -3,48 +3,34 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <!-- 
-    <TextView
+    <ImageView
         android:id="@+id/item_type"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_vertical"
-        android:background="#999999"
-        android:padding="10dp"
-        android:paddingLeft="3dip"
-        android:paddingRight="3dip"
-        android:textColor="#222222" />
- -->
-    <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="5dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:src="@drawable/file" />
-    
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:src="@drawable/other"
+         />
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="1"
         android:orientation="vertical"
         android:paddingLeft="10dp" >
-
-      
 
         <TextView
             android:id="@+id/item_name"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:textColor="#bbbbcc"
-            android:paddingLeft="55dp"
+            android:gravity="left"
+            android:paddingLeft="45dp"
             android:paddingTop="10dp"
-            android:textStyle="bold"
-            android:gravity="left" />
+            android:textColor="#454545"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_href"
@@ -52,5 +38,5 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
     </LinearLayout>
-    
-    </RelativeLayout>
+
+</RelativeLayout>

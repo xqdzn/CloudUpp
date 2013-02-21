@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="kategori_berkas">
+        <item>All Files</item>
+        <item>Popular</item>
+        <item>Images</item>
+        <item>Bookmarks</item>
+        <item>Text</item>
+        <item>Archives</item>
+        <item>Audio</item>
+        <item>Video</item>
+        <item>Other</item>
+        <item>Trash</item>
+        
+    </string-array>
+    
+  
+
+</resources>
