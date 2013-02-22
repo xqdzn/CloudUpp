@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingTop="8dip"
+    android:background="@drawable/bg_list_item_task_view_stub" >
+
+    <ImageButton
+        android:id="@+id/btn_compelete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:minHeight="55dp"
+        android:background="@null"
+        android:src="@drawable/ico_complete_selector" />
+
+    <ImageButton
+        android:id="@+id/btn_important"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:minHeight="55dp"
+        android:background="@null"
+        android:src="@drawable/ico_important_selector" />
+
+    <ImageButton
+        android:id="@+id/btn_"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:minHeight="55dp"
+        android:background="@null"
+        android:src="@drawable/ico_notify_selector" />
+
+    <ImageButton
+        android:id="@+id/btn_"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:minHeight="55dp"
+        android:background="@null"
+        android:src="@drawable/ico_love_selector" />
+
+    <ImageButton
+        android:id="@+id/btn_"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:minHeight="55dp"
+        android:background="@null"
+        android:src="@drawable/ico_share_selector" />
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
