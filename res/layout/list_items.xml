@@ -1,49 +1,73 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical" 
-    android:id="@+id/rl_list_item">
+    android:id="@+id/rl_list"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/rounded_list"
+    android:minHeight="35dip"
+    android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/item_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image"
-        android:paddingBottom="5dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp"
-        
-        
-         />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical"
-        android:paddingLeft="10dp" >
-
-        <TextView
-            android:id="@+id/item_name"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="left"
-            android:paddingLeft="45dp"
-            android:paddingTop="10dp"
-            android:textColor="#454545"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/item_href"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-    </LinearLayout>
     <ViewStub
         android:id="@+id/vs_detail_operations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dip"
         android:layout="@layout/view_stub_tool_bar" />
+
+    <TextView
+        android:id="@+id/item_href"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/item_type"
+        android:layout_width="35dip"
+        android:layout_height="35dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rounded_icon_background"
+        android:contentDescription="@string/image" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/item_type"
+        android:hint="item name"
+        android:textColor="#454545"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/item_name"
+        android:layout_below="@+id/item_name"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="top"
+        android:hint="http://my.cl.ly/2ef90w"
+        android:textColor="#3380CC"
+        android:textSize="10dip" />
+
+    <TextView
+        android:id="@+id/item_view_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rounded_view_background"
+        android:paddingBottom="5dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingTop="5dip"
+        android:textSize="10dip" />
 
 </RelativeLayout>

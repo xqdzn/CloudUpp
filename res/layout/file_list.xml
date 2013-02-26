@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/rounded_list">
+    
+     <ImageView
+        android:id="@+id/item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp" />
+
+     <TextView
+         android:id="@+id/item_name"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentTop="true"
+         android:layout_marginLeft="15dp"
+         android:layout_toRightOf="@+id/item_type"
+         android:text="Item_name.ext"
+         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+     <TextView
+         android:id="@+id/item_size"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/item_name"
+         android:layout_below="@+id/item_name"
+         android:text="Item_size: 0.2MB"
+         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+     <TextView
+         android:id="@+id/item_url"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/item_size"
+         android:layout_below="@+id/item_size"
+         android:text="http://item.url.ly"
+         android:textAppearance="?android:attr/textAppearanceSmall"
+         android:textColor="@color/blue_url" />
+
+     <TextView
+         android:id="@+id/textView4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"
+         android:text="4D 2H"
+         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

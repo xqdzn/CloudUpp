@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:paddingTop="8dip"
+    android:paddingTop="5dip"
     android:background="@drawable/bg_list_item_task_view_stub" >
 
     <ImageButton

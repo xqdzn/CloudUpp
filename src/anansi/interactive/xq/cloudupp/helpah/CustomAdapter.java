@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -47,6 +48,7 @@ public class CustomAdapter extends BaseAdapter {
 
 	class ViewHolder {
 		View vsOperations;
+		RelativeLayout rlListItem;
 		ImageButton ibCompelete;
 		ImageButton ibImportant;
 		ImageButton ibNotify;
@@ -54,8 +56,9 @@ public class CustomAdapter extends BaseAdapter {
 		ImageButton ibShare;
 		TextView i_name;
 		TextView i_href;
-		RelativeLayout rlListItem;
 		ImageView i_type;
+		TextView i_url;
+		TextView i_viewc;
 	}
 
 	public int getD(String tipe){
@@ -89,17 +92,24 @@ public class CustomAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = layoutInflater.inflate(R.layout.list_items, null);
 			viewHolder = new ViewHolder();
-
+			viewHolder.rlListItem = (RelativeLayout) convertView.findViewById(R.id.rl_list);
+			
 			TextView iName = (TextView) convertView.findViewById(R.id.item_name);
 			TextView iHref = (TextView) convertView.findViewById(R.id.item_href);
 			ImageView iType = (ImageView) convertView.findViewById(R.id.item_type);
+			TextView iUrl = (TextView) convertView.findViewById(R.id.item_url);
+			TextView iViewc = (TextView) convertView.findViewById(R.id.item_view_count);
 			
 			String tipe = data.get(position).get("item_type");
+			String viewc = data.get(position).get("view_counter");
+			
 			
 			int icon = getD(tipe);
 			iType.setImageResource(icon);
 			iName.setText(data.get(position).get("name"));
 			iHref.setText(data.get(position).get("href"));
+			iUrl.setText(data.get(position).get("url"));
+			iViewc.setText(viewc);
 			
 			viewHolder.vsOperations = (ViewStub) convertView.findViewById(R.id.vs_detail_operations);
 			convertView.setTag(viewHolder);
@@ -108,6 +118,27 @@ public class CustomAdapter extends BaseAdapter {
 			viewHolder = (ViewHolder) convertView.getTag();
 			viewHolder.vsOperations.setVisibility(View.GONE);
 		}
+		
+		viewHolder.rlListItem.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (viewHolder.vsOperations.getVisibility() == View.GONE) {
+					
+					if(viewHolder.vsOperations instanceof ViewStub){
+						
+						viewHolder.vsOperations = ((ViewStub)viewHolder.vsOperations).inflate();
+					}
+					viewHolder.vsOperations.setVisibility(View.VISIBLE);
+					
+				} else {
+
+					viewHolder.vsOperations.setVisibility(View.GONE);
+				}
+			}
+		});
+		
 		return convertView;
 
 	}
