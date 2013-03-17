@@ -27,6 +27,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 
@@ -60,16 +61,6 @@ public class Daftar extends Activity {
 		setuju = (CheckBox) findViewById(R.id.checkBox1);
 		daftar = (Button) findViewById(R.id.btnDaftar);
 
-		cd = new ConnectionDetector(getApplicationContext());
-		 
-        // Check for internet connection
-        if (!cd.isConnectingToInternet()) {
-            // Internet Connection is not present
-            alert.showAlertDialogs(Daftar.this, "Internet Connection Error",
-                    "Please connect to working Internet connection");
-            // stop executing code by return
-            return;
-        }
 		
 		setuju.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -100,7 +91,7 @@ public class Daftar extends Activity {
 					Daptarin daftarDong = new Daptarin();
 					daftarDong.execute(jsonUser);
 				} else {
-					ab("Please fill the email address and password", "Warning");
+					ab("Please fill the email address and password", "Wait");
 				}
 
 			}
@@ -111,10 +102,22 @@ public class Daftar extends Activity {
 	public class Daptarin extends AsyncTask<String, Void, Integer> {
 		HttpResponse responHttp;
 		int statusTCP;
+		
 		ProgressDialog pd = ProgressDialog.show(Daftar.this, "Wait ah",
 				"Checking...", true);
 
 		protected void onPreExecute(String pede) {
+			cd = new ConnectionDetector(getApplicationContext());
+			 
+	        // Check for internet connection
+	        if (!cd.isConnectingToInternet()) {
+	            // Internet Connection is not present
+	            alert.showAlertDialogs(Daftar.this, "Internet Connection Error",
+	                    "Please connect to working Internet connection");
+	            // stop executing code by return
+	            return;
+	        }
+			
 			pd.show();
 
 		}
@@ -145,7 +148,7 @@ public class Daftar extends Activity {
 					Log.e("Case Status TCP", "201 succeed");
 					break;
 				case 302:
-					Log.e("Case Status TCP", "302 already registered");
+					Log.e("Case Status TCP", "401 already registered");
 					break;
 				case 422:
 					Log.e("Case Status TCP", "422 email address invalid");

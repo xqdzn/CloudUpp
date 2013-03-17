@@ -1087,16 +1087,17 @@ containing a value of this type.
         public static final int popular=0x7f02008e;
         public static final int rounded_icon_background=0x7f02008f;
         public static final int rounded_list=0x7f020090;
-        public static final int rounded_view_background=0x7f020091;
-        public static final int seting=0x7f020092;
-        public static final int shadow=0x7f020093;
-        public static final int text=0x7f020094;
-        public static final int tiledbackground=0x7f020095;
-        public static final int trash=0x7f020096;
-        public static final int unknown=0x7f020097;
-        public static final int up=0x7f020098;
-        public static final int video=0x7f020099;
-        public static final int white=0x7f02009a;
+        public static final int rounded_random=0x7f020091;
+        public static final int rounded_view_background=0x7f020092;
+        public static final int seting=0x7f020093;
+        public static final int shadow=0x7f020094;
+        public static final int text=0x7f020095;
+        public static final int tiledbackground=0x7f020096;
+        public static final int trash=0x7f020097;
+        public static final int unknown=0x7f020098;
+        public static final int up=0x7f020099;
+        public static final int video=0x7f02009a;
+        public static final int white=0x7f02009b;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f050027;
