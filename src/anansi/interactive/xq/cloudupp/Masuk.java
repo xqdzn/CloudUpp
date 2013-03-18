@@ -11,8 +11,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import anansi.interactive.xq.cloudupp.fragments.AllFilesActivity;
-import anansi.interactive.xq.cloudupp.helpah.AlertDialogManager;
-import anansi.interactive.xq.cloudupp.helpah.ConnectionDetector;
+import anansi.interactive.xq.cloudupp.helper.AlertDialogManager;
+import anansi.interactive.xq.cloudupp.helper.ConnectionDetector;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,9 +29,9 @@ public class Masuk extends Activity {
 	EditText sandi, surel;
 	Button masuk, daftar, sekip;
 
-	
 	ConnectionDetector cd;
 	AlertDialogManager alert = new AlertDialogManager();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,16 +45,16 @@ public class Masuk extends Activity {
 		sekip = (Button) findViewById(R.id.button3);
 
 		cd = new ConnectionDetector(getApplicationContext());
-		 
-        // Check for internet connection
-        if (!cd.isConnectingToInternet()) {
-            // Internet Connection is not present
-            alert.showAlertDialogs(Masuk.this, "Internet Connection Error",
-                    "Please connect to working Internet connection");
-            // stop executing code by return
-            return;
-        }
-		
+
+		// Check for internet connection
+		if (!cd.isConnectingToInternet()) {
+			// Internet Connection is not present
+			alert.showAlertDialogs(Masuk.this, "Internet Connection Error",
+					"Please connect to working Internet connection");
+			// stop executing code by return
+			return;
+		}
+
 		masuk.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -81,9 +81,9 @@ public class Masuk extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				//Intent i = new Intent(Masuk.this, Daftar.class);
-				//startActivity(i);
-				//finish();
+				// Intent i = new Intent(Masuk.this, Daftar.class);
+				// startActivity(i);
+				// finish();
 			}
 		});
 
@@ -130,20 +130,17 @@ public class Masuk extends Activity {
 			if (poe == 200) {
 				Intent i = new Intent(Masuk.this, SemuaBerkas.class);
 				i.putExtra("imel", surel.getText().toString());
-				i.putExtra("passwot", sandi.getText()
-						.toString());
+				i.putExtra("passwot", sandi.getText().toString());
 				startActivity(i);
 				finish();
-				
+
 			} else {
-				 alert.showAlertDialogs(Masuk.this, "Oops",
-		                    "Please check your password and email address.");
+				alert.showAlertDialogs(Masuk.this, "Oops",
+						"Please check your password and email address.");
 			}
 			pd.dismiss();
 		}
 
 	}
-
-
 
 }

@@ -11,8 +11,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import anansi.interactive.xq.cloudupp.helpah.AlertDialogManager;
-import anansi.interactive.xq.cloudupp.helpah.ConnectionDetector;
+import anansi.interactive.xq.cloudupp.helper.AlertDialogManager;
+import anansi.interactive.xq.cloudupp.helper.ConnectionDetector;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -39,7 +39,7 @@ public class Daftar extends Activity {
 
 	ConnectionDetector cd;
 	AlertDialogManager alert = new AlertDialogManager();
-	
+
 	String _surel, _sandi, pesan;
 	Boolean _setuju = true;
 	static String url = "http://my.cl.ly/register";
@@ -61,7 +61,6 @@ public class Daftar extends Activity {
 		setuju = (CheckBox) findViewById(R.id.checkBox1);
 		daftar = (Button) findViewById(R.id.btnDaftar);
 
-		
 		setuju.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -102,22 +101,23 @@ public class Daftar extends Activity {
 	public class Daptarin extends AsyncTask<String, Void, Integer> {
 		HttpResponse responHttp;
 		int statusTCP;
-		
+
 		ProgressDialog pd = ProgressDialog.show(Daftar.this, "Wait ah",
 				"Checking...", true);
 
 		protected void onPreExecute(String pede) {
 			cd = new ConnectionDetector(getApplicationContext());
-			 
-	        // Check for internet connection
-	        if (!cd.isConnectingToInternet()) {
-	            // Internet Connection is not present
-	            alert.showAlertDialogs(Daftar.this, "Internet Connection Error",
-	                    "Please connect to working Internet connection");
-	            // stop executing code by return
-	            return;
-	        }
-			
+
+			// Check for internet connection
+			if (!cd.isConnectingToInternet()) {
+				// Internet Connection is not present
+				alert.showAlertDialogs(Daftar.this,
+						"Internet Connection Error",
+						"Please connect to working Internet connection");
+				// stop executing code by return
+				return;
+			}
+
 			pd.show();
 
 		}
@@ -217,6 +217,5 @@ public class Daftar extends Activity {
 						}).show();
 
 	}
-
 
 }

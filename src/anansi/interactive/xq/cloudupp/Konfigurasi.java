@@ -15,5 +15,4 @@ public class Konfigurasi extends PreferenceFragment {
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 
-	
 }

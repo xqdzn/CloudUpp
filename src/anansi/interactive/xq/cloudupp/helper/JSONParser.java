@@ -1,4 +1,4 @@
-package anansi.interactive.xq.cloudupp.helpah;
+package anansi.interactive.xq.cloudupp.helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class JSONParser {
 
 	}
 
-	public String mkeHttpRequest(String url, String email, String password){
+	public String mkeHttpRequest(String url, String email, String password) {
 		DefaultHttpClient hcl = new DefaultHttpClient();
 		hcl.getCredentialsProvider().setCredentials(
 				new AuthScope("my.cl.ly", 80),
@@ -39,7 +39,7 @@ public class JSONParser {
 			HttpResponse httpResponse = hcl.execute(hget);
 			HttpEntity httpEntity = httpResponse.getEntity();
 			is = httpEntity.getContent();
-			
+
 		} catch (UnsupportedEncodingException e1) {
 			Log.e("UnsupportedEncodingException", e1.toString());
 		} catch (ClientProtocolException e2) {
@@ -53,8 +53,8 @@ public class JSONParser {
 			// e.printStackTrace();
 		}
 		try {
-			BufferedReader bf = new BufferedReader(new InputStreamReader(
-					is, "iso-8859-1"), 8);
+			BufferedReader bf = new BufferedReader(new InputStreamReader(is,
+					"iso-8859-1"), 8);
 			StringBuilder sb = new StringBuilder();
 			String line = null;
 			while ((line = bf.readLine()) != null) {
@@ -69,5 +69,5 @@ public class JSONParser {
 		// return JSON String
 		return json;
 
-	} 
+	}
 }

@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class SemuaFileFragment extends ListFragment {
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		Log.e("mulaiii", "lalalalla");
 		return inflater.inflate(R.layout.list, null);
 	}
@@ -18,5 +19,3 @@ public class SemuaFileFragment extends ListFragment {
 		Log.e("acti created", "lalalalla");
 	}
 }
-
-	

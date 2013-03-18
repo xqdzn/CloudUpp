@@ -33,7 +33,8 @@ public class BaseActivity extends SlidingFragmentActivity {
 
 		// set the Behind View
 		setBehindContentView(R.layout.menu_frame);
-		FragmentTransaction t = this.getSupportFragmentManager().beginTransaction();
+		FragmentTransaction t = this.getSupportFragmentManager()
+				.beginTransaction();
 		mFrag = new SampleListFragment();
 		t.replace(R.id.menu_frame, mFrag);
 		t.commit();
@@ -56,7 +57,7 @@ public class BaseActivity extends SlidingFragmentActivity {
 			toggle();
 			return true;
 		case R.id.github:
-			//Util.goToGitHub(this);
+			// Util.goToGitHub(this);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

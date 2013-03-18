@@ -8,10 +8,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import anansi.interactive.xq.cloudupp.R;
-import anansi.interactive.xq.cloudupp.helpah.AlertDialogManager;
-import anansi.interactive.xq.cloudupp.helpah.ConnectionDetector;
-import anansi.interactive.xq.cloudupp.helpah.CustomAdapter;
-import anansi.interactive.xq.cloudupp.helpah.JSONParser;
+import anansi.interactive.xq.cloudupp.helper.AlertDialogManager;
+import anansi.interactive.xq.cloudupp.helper.ConnectionDetector;
+import anansi.interactive.xq.cloudupp.helper.CustomAdapter;
+import anansi.interactive.xq.cloudupp.helper.JSONParser;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,26 +36,22 @@ public class FragmenFile extends ListFragment {
 	ArrayList<HashMap<String, String>> itemsList = new ArrayList<HashMap<String, String>>();
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		 LoadItems li = new LoadItems();
-		 li.execute("exqdzn@gmail.com", "rahasia");
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		LoadItems li = new LoadItems();
+		li.execute("exqdzn@gmail.com", "rahasia");
 		return super.onCreateView(inflater, container, savedInstanceState);
 
 	}
 
-	
-	
-	
 	@Override
 	public void onListItemClick(ListView lv, View v, int position, long id) {
 		String ii = Integer.toString(position);
 		String ee = Long.toString(id);
-		Toast.makeText(getActivity(), ii + " " +ee, Toast.LENGTH_SHORT).show();
-		
+		Toast.makeText(getActivity(), ii + " " + ee, Toast.LENGTH_SHORT).show();
+
 	}
 
-	
-	
 	private void bikinList(String daftarBerkas) {
 		try {
 			JSONArray items = new JSONArray(daftarBerkas);
@@ -78,14 +74,17 @@ public class FragmenFile extends ListFragment {
 					itemsList.add(map);
 				}
 			}
-			String[] from = new String[] { TAG_HREF, TAG_NAME, TAG_ITEM_VIEW_COUNT, TAG_ITEM_URL};
-			int[] to = new int[] { R.id.item_href, R.id.item_name, R.id.item_view_count, R.id.item_url
-			};
+			String[] from = new String[] { TAG_HREF, TAG_NAME,
+					TAG_ITEM_VIEW_COUNT, TAG_ITEM_URL };
+			int[] to = new int[] { R.id.item_href, R.id.item_name,
+					R.id.item_view_count, R.id.item_url };
 
-			//SimpleAdapter adapter = new SimpleAdapter(getActivity(), itemsList,	R.layout.list_items, from, to);
-			//setListAdapter(adapter);
+			// SimpleAdapter adapter = new SimpleAdapter(getActivity(),
+			// itemsList, R.layout.list_items, from, to);
+			// setListAdapter(adapter);
 
-			CustomAdapter customAdapter = new CustomAdapter(getActivity(), itemsList);
+			CustomAdapter customAdapter = new CustomAdapter(getActivity(),
+					itemsList);
 			setListAdapter(customAdapter);
 		} catch (JSONException e) {
 			e.printStackTrace();
